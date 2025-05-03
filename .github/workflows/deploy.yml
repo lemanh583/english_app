@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
 
 env:
-  IMAGE_NAME: english-app:latest
+  IMAGE_NAME: ${{ secrets.REGISTRY_URL }}/english-app:latest
 
 jobs:
   build-and-deploy:
