@@ -33,6 +33,6 @@ jobs:
           ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }} << EOF
             docker login ${{ secrets.REGISTRY_URL }} -u ${{ secrets.REGISTRY_USERNAME }} --password ${{ secrets.REGISTRY_PASSWORD }}
             docker pull $IMAGE_NAME
-            cd ~/myapp
-            docker compose up -d
+            docker rm -f english-app || true
+            docker run -d --name english-app -p 8080:8080 --restart always $IMAGE_NAME
           EOF
