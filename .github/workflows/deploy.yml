@@ -24,7 +24,7 @@ jobs:
           docker push $IMAGE_NAME
 
       - name: 🔐 Setup SSH
-        uses: webfactory/ssh-agent@v0.8.1
+        uses: webfactory/ssh-agent
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
